@@ -36,19 +36,14 @@ for game in games:
 
     # If number of blocks satisifes game rules, then get game number and add it to the part_1_answer variable
     # Rules: Which games are possible if there are only 12 red cubes, 13 green cubes, and 14 blue cubes
-    if max(reds, default=0) <=12 and max(greens, default=0) <=13 and max(blues, default=0) <= 14:
+    if max(reds, default=0) <= 12 and max(greens, default=0) <= 13 and max(blues, default=0) <= 14:
         part_1_answer += (int(split[0].replace("Game ", "")))
 
     # PART TWO
-    # Get the max number of each color's cube and append it to a powers array
-    powers = []
-    powers.append(max(reds))
-    powers.append(max(greens))
-    powers.append(max(blues))
+    # Need to determine the minimum possible number of each color's cube for each game, which happens to be the maximum number drawn
+    # Multiply the max number of each color's cube, then add that to the part_2_answer
+    part_2_answer += (max(reds) * max(greens) * max(blues))
 
-    # Add the product of powers to the part_2_answer variable
-    part_2_answer += numpy.prod(powers)
 
 print(part_1_answer) # 2149
-
 print(part_2_answer) # 71274
